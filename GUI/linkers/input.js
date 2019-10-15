@@ -4,9 +4,21 @@ var path = require("path");
 function checkSyntax(input){
   //  checks the input to determine if the input is valid
   // if not input
-  if (input === ""){
+
+  // if it fits the regex return true
+  let re = new RegExp('{((((q([0-9]|[0-9]))|(R|L|Δ| |a|b|c|)),)*)(q([0-9]|[0-9])|(R|L|Δ| |a|b|c))}');
+  if (re.test(input)) {
+    return true
+  }
+
+  else if (input === ""){
     console.log('input is empty');
     alert('Input Empty. please enter a valid input');
+    return false
+  }
+
+  else{
+    alert('Input invalid. please enter a valid input');
     return false
   }
 }
