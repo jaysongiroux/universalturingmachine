@@ -6,7 +6,8 @@ option = sys.argv[1]
 
 # parsing input for backend
 def input(input):
-    return "this is from the python backend"
+    a = ["line 1","\nline 2","\nline 3","\nthis is from the python backend"]
+    return a
 
 
 
