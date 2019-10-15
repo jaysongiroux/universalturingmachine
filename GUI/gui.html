@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Turing Machine</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <script src="linkers/input.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div class="container">
+
+  <h1>TURING MACHINE</h1>
+  <div class="divider"></div>
+
+  <H6>OUTPUT</H6>
+  <!--    OUTPUT LOG BOX -->
+  <textarea style="height: 250px"></textarea>
+  <!--    STATE ACCEPT/DENY -->
+  <div class="state" style="text-align:center">
+    <h6>STATE:</h6>
+    <i class="material-icons">check</i>
+    <i class="material-icons">close</i>
+  </div>
+  <!--    INPUT -->
+  <div class="divider"></div>
+
+  <form>
+    <br>
+    <H6>INPUT</H6>
+    <input placeholder="[Example input]]" id="INPUT" type="text" class="validate">
+    <BR>
+    <a class="waves-effect waves-light btn" onclick="input()">SUBMIT</a>
+  </form>
+  <script src="./renderer.js"></script>
+</div>
+</body>
+</html>
+

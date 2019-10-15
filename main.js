@@ -1,8 +1,11 @@
-require('electron-reload')(__dirname);
+const electron = require('electron')
+// Module to control application life.
+const app = electron.app
+// Module to create native browser window.
+const BrowserWindow = electron.BrowserWindow
 
-// Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -10,16 +13,14 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 700,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+  mainWindow = new BrowserWindow({width: 800, height: 800});
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, '/gui/gui.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -40,15 +41,18 @@ app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  // On macOS it is common for applications and their menu bar
+  // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') app.quit()
+
+    app.quit()
 })
 
 app.on('activate', function () {
-  // On macOS it's common to re-create a window in the app when the
+  // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) createWindow()
+  if (mainWindow === null) {
+    createWindow()
+  }
 })
 
 // In this file you can include the rest of your app's specific main process
