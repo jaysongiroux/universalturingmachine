@@ -1,15 +1,17 @@
 import requests
-from bs4 import BeautifulSoup as bs
 import sys
+import turingMachine as tm
+import re
 
 option = sys.argv[1]
 
-# parsing input for backend
+# this is the script the javascript executes importing another python file for turing machines
 def input(input):
-    a = ["line 1","\nline 2","\nline 3","\nthis is from the python backend"]
-    return a
-
+    # x = re.search("{(.*)", option)
+    x = tm.parseInput(input)
+    return x
 
 
 print(input(option))
 sys.stdout.flush()
+

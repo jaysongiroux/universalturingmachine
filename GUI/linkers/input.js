@@ -42,12 +42,9 @@ function input(){
   var array = [];
 
   pyshell.on('message', function(message) {
-    array.push("[INPUT] - " + input + "\n");
-    var evaluated = eval(message);
-    for (i = 0; i < evaluated.length; i++) {
-      array.push(evaluated[i]);
-    }
-
+    array.push("\n[INPUT] - " + input);
+    evaluated = eval(message)
+    array.push("\n[Parsed Output]: ", evaluated)
     output.innerHTML = array;
   });
 }
