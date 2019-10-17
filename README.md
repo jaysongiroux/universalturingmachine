@@ -13,3 +13,6 @@ Deployment:
 3. cd GUI
 4. npm install
 5. npm start
+
+
+update for python backend
