@@ -6,7 +6,6 @@ import re
 # example:
 # Input is "{q1,a,q3,c,R}"
 # Output is "['{', 'q1', 'a','q3','c', 'R', '}']"
-# todo: if input does not fit requiered input. return null
 def parseInput(input):
     logger = []
     evaled = []
@@ -32,7 +31,6 @@ def parseInput(input):
 # input "q1" output "1" for position 1 in the array
 # can be changed the offset if needed
 def position(a):
-
     offset = 0
     reg  = "[0-9]*"
     # if the unit contains "q"

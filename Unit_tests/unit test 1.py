@@ -7,7 +7,6 @@ class assertion:
         if expected == intial:
             print(Fore.GREEN + "[PASS] " + message)
         else:
-
             print(Fore.RED + "[FAIL] " + message + ". received input: ", intial)
             return
 
