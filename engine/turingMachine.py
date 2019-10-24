@@ -22,12 +22,12 @@ def parseInput(input,tape):
                 evaled.append(input[i] + input[i+1])
         elif input[i] == "a" or input[i] == "v" or input[i] == "c" or input[i] == "R" or input[i] == "L" or input[i] == "Δ":
             evaled.append(input[i])
-    tape = parseTape(tape)
+    tempTape = parseTape(tape)
     tempString = "[Parsed Input]: ", evaled
     logger.append(tempString)
-    tempString = "[Parsed Tape]: ", tape
+    tempString = "[Parsed Tape]: ", tempTape
     logger.append(tempString)
-    return evaled
+    return evaled, tempTape, logger
 
 # given tape: "a,b,c,d"
 # output: ['[', ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']

@@ -9,8 +9,8 @@ tape = sys.argv[2]
 # this is the script the javascript executes importing another python file for turing machines
 def input(input):
     # x = re.search("{(.*)", option)
-    x = tm.parseInput(input,tape)
-    return x
+    x,t,l = tm.parseInput(input,tape)
+    return l
 
 
 print(input(option))

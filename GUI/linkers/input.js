@@ -57,8 +57,8 @@ function input(){
   pyshell.on('message', function(message) {
     array.push("\n[INPUT] - " + input);
     array.push("\n[INPUT TAPE] - " + tape);
-    evaluated = eval(message);
-    array.push("\n[Parsed Output]: ", evaluated);
+    // evaluated = eval(message);
+    array.push(message);
     output.innerHTML = array;
   });
 }
