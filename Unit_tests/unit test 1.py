@@ -1,5 +1,6 @@
 from engine.turingMachine import position as pos
 from engine.turingMachine import parseInput as parse
+from engine.turingMachine import parseTape as tape
 from colorama import Fore
 
 class assertion:
@@ -17,7 +18,11 @@ def positionTest():
     assertion.equals(None, pos("1"),"input: '1' should equal 'None'")
 
 def parseTest():
-    assertion.equals(['{', 'q1', 'a', 'q3', 'c', 'R', '}'],parse("{q1,a,q3,c,R}"),"input: '{q1,a,q3,c,R}' should equal '['{', 'q1', 'a', 'q3', 'c', 'R', '}']'")
+    assertion.equals(['{', 'q1', 'a', 'q3', 'c', 'R', '}'],parse("{q1,a,q3,c,R}",","),"input: '{q1,a,q3,c,R}' should equal '['{', 'q1', 'a', 'q3', 'c', 'R', '}']'")
+
+def parseTapeTest():
+    assertion.equals(['[', ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c'], ']'],tape("a,b,c,a,b,c,a,b,c"),"'a,b,c,a,b,c,a,b,c' should equal: '['[', ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c'], ']']'")
 
 positionTest()
 parseTest()
+parseTapeTest()
