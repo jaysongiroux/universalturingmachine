@@ -98,20 +98,19 @@ def main(trans, tape):
         # what to do when seeing brackets
 
 
-
-        # determine if haulting state by determining if the counter exceeds the length of the tape
-        if counter >= len(current):
-            print("False, does not finish on q2")
-            break
-
         # determine when it is the final state
         # TODO: should this be 1 or 2 since accepting state is q2?
-        if currentPosition == 1 and counter == len(current):
+        if currentPosition == 2 and counter == len(current):
             # todo: unclear to me if it lands on q2 it passes or if q2 needs to equal something in order to pass
             print("Final Tape: ", tape)
             print("Counter: ", counter, " Current Position: ", currentPosition)
             print("FINAL POSITION WAS Q2 WITH VALUE: ", tape[currentPosition])
             return True
+
+            # determine if haulting state by determining if the counter exceeds the length of the tape
+        if counter >= len(current):
+            print("False, does not finish on q2")
+            break
 
 
     print('final tape: ', tape)
