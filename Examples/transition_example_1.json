@@ -1,0 +1,26 @@
+//State transitions for the TM of a*b*
+//will accept any state with a string of a series of 'a' followed by 'b'
+
+{
+  "q1-1": {
+    "state": "q1",
+    "input": "a",
+    "write": "X",
+    "transition_to": "q1",
+    "move": "R"
+  },
+  "q1-2": {
+    "state": "q1",
+    "input": "b",
+    "write": "x",
+    "transition_to": "q2",
+    "move": "R"
+  },
+  "q2": {
+    "state": "q2",
+    "input": "b",
+    "write": "x",
+    "transition_to": "q2",
+    "move": "R"
+  }
+}
