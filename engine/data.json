@@ -10,7 +10,7 @@
   },
   {
     "q1-1": {
-      "state": "q1-1",
+      "state": "q1",
       "input": "c",
       "transition_to": "q3",
       "write": "b",
@@ -19,7 +19,7 @@
   },
   {
     "q1-2": {
-      "state": "q1-2",
+      "state": "q1",
       "input": "b",
       "transition_to": "q2",
       "write": "c",
@@ -28,7 +28,7 @@
   },
   {
     "q1-3": {
-      "state": "q1-3",
+      "state": "q1",
       "input": "c",
       "transition_to": "q3",
       "write": "b",
@@ -46,7 +46,7 @@
   },
   {
     "q2-1": {
-      "state": "q2-1",
+      "state": "q2",
       "input": "c",
       "transition_to": "q3",
       "write": "b",
