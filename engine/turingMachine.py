@@ -1,58 +1,181 @@
+import json
 import re
-#####################
-##  INPUT PARSING  ##
-#####################
-logger = []
-# example:
-# Input is "{q1,a,q3,c,R}"
-# Output is "['{', 'q1', 'a','q3','c', 'R', '}']"
-def parseInput(input,tape):
-    global logger
-    evaled = []
-    tempString = "[INPUT] ", input
-    logger.append(tempString)
-    for i in range(len(input)):
-        if input[i] == "{" or input[i] == "}":
-            evaled.append(input[i])
+import time
+import os
+import encoding as encoding
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-        elif input[i] != "," and input[i+1] != ",":
-            if input[i+1] == "}":
-                evaled.append(input[i])
-            else:
-                evaled.append(input[i] + input[i+1])
-        elif input[i] == "a" or input[i] == "v" or input[i] == "c" or input[i] == "R" or input[i] == "L" or input[i] == "Δ":
-            evaled.append(input[i])
-    tempTape = parseTape(tape)
-    tempString = "[Parsed Input]: ", evaled
-    logger.append(tempString)
-    tempString = "[Parsed Tape]: ", tempTape
-    logger.append(tempString)
-    return evaled, tempTape, logger
+# defining variables
+jsonFile = ROOT_DIR+"/data.json"
+tapeFile = ROOT_DIR+"/tape.txt"
+startingpos = 0
+startingSymbol = ">"
+startingPosOffset = 0
 
-# given tape: "a,b,c,d"
-# output: ['[', ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']
-def parseTape(tape):
-    tempString = tape.split(",")
-    tempString = "[",tempString,"]"
+# read json file into obj file
+def readJSON():
+    with open(jsonFile) as json_file:
+        data = json.load(json_file)
+    return data
 
-    obj = []
-    for i in tempString:
-        obj.append(i)
+def readTape():
+    f = open(tapeFile,"r")
+    data = f.read().split(",")
+    return data
 
-    return obj
+def tapePadding(tape):
+    spacePadding = []
+    leftBounded = False
+    rightBounded = False
+
+    for i in range(73):
+        spacePadding.append(" ")
+
+#     check if tape is bounded
+    for i in range(len(tape)):
+        if "[" in tape[i]:
+            leftBounded = True
+        if "]" in tape[i]:
+            rightBounded = True
+
+    if leftBounded == True and rightBounded == True:
+        return tape
+    elif leftBounded == True and rightBounded == False:
+        tape = tape + spacePadding
+        return tape
+    elif leftBounded == False and rightBounded == True:
+        tape = spacePadding + tape
+        return tape
+    elif leftBounded == False and rightBounded == False:
+        tape = spacePadding + tape + spacePadding
+        return tape
+
+def startingPosOnTape(t):
+    global startingpos
+    for i in range(len(t)):
+        if startingSymbol in t[i]:
+            startingpos = i+startingPosOffset
+    cleanString = re.sub('>', '', t[startingpos])
+    t[startingpos] = cleanString
+    return t
+
+def currentstate(trans,number):
+    counter = 0
+    states = []
+    contains = "q"+str(number)
+    jsonkeys = trans.keys()
+    listKeys = []
+
+    for keys in jsonkeys:
+        listKeys.append(keys)
+    # print("keys from json file: ",listKeys)
+    print("checking if matching: ", contains)
+    for i in range(len(listKeys)):
+        if contains in listKeys[counter]:
+            states.append(listKeys[counter])
+        counter = counter+1
+    return states
+
+def whatToRead(states,transitions):
+    toRead = []
+    togo =  []
+    write = []
+    move = []
+    currentState = []
+
+    for i in range(len(states)):
+        currentState.append(transitions[states[i]]["state"])
+        toRead.append(transitions[states[i]]["input"])
+        togo.append(transitions[states[i]]["transition_to"])
+        write.append(transitions[states[i]]["write"])
+        move.append(transitions[states[i]]["move"])
+    return currentState, toRead, togo, write, move
+
+def getStates(a):
+    cleanString = re.sub('\D', '', a)
+    # print("clean string: ", cleanString)
+    return int(cleanString)
 
 
-# determine the position from the Q value
-# input "q1" output "1" for position 1 in the array
-# can be changed the offset if needed
-def position(a):
-    offset = 0
-    reg  = "[0-9]*"
-    # if the unit contains "q"
-    if "q" in a:
-        x = re.findall(reg, a, flags=0)
-        return int(x[1]) + offset
-    else:
-        return None
+def encode():
+    print("-----------")
+    l = encoding.main()
+    for i in range(len(l)):
+        print("Encoded State:",l[i])
 
 
+def UTM(tape, transitions):
+    counter = 1
+    stateNum = 1
+    whileBool = True
+    while whileBool == True:
+        statesToCheck = currentstate(transitions,stateNum)
+        print("states to check", statesToCheck)
+        currentstates, toRead, togo, write, move = whatToRead(statesToCheck,transitions)
+
+        for i in range(len(toRead)):
+            print("current Tape: ", tape)
+            print("checking if tape: ", tape[startingpos + counter - 1], "==", toRead[i])
+
+            if not tape[startingpos + counter - 1] in toRead:
+                print("[STOPPED] Read: ", tape[startingpos + counter - 1], "expected these options: ", toRead)
+                encode()
+                exit()
+
+            if tape[startingpos + counter - 1] == toRead[i]:
+                print("matched! with tape: ",tape[startingpos + counter -1], "and to read: ", toRead[i])
+                state = i
+                #         writing to tape
+                tape[startingpos + counter - 1] = write[state]
+                stateNum = getStates(togo[state])
+
+                #       movement:
+                print("Current states: ", currentstates[i])
+
+                if move[state] == "R":
+                    print("Moving Right")
+                    counter = counter + 1
+                elif move[state] == "L":
+                    print("Moving Left")
+                    counter = counter - 1
+
+                #     hit bracket and in q2
+                if tape[startingpos + counter - 1] == "]" and currentstates[i] in "q2":
+                    print("Final Tape: ", tape)
+                    print("in state q2 and finished")
+                    print("ACCEPTED")
+                    encode()
+                    exit()
+                if tape[startingpos + counter - 1] == "[" and currentstates[i] in "q2":
+                    print("Final Tape: ", tape)
+                    print("in state q2 and finished")
+                    print("ACCEPTED")
+                    encode()
+                    exit()
+
+                # hits bracket will on continue since it is bounded
+                if tape[startingpos + counter - 1] == "]":
+                    print("[STOPPED] hit bracket ]")
+                    print("[STOPPED] In state: ", currentstates[i])
+                    print("Tape: ", tape)
+                    encode()
+                    whileBool = False
+                    break
+                elif tape[startingpos + counter - 1] == "[":
+                    print("[STOPPED] hit bracket [")
+                    print("[STOPPED] In state: ", currentstates[i])
+                    print("Tape: ", tape)
+                    encode()
+                    whileBool = False
+                    break
+                break
+    return tape
+
+def main():
+    print("Starting Turing Machine")
+    transitions = readJSON()
+    tape = readTape()
+    tape = tapePadding(tape)
+    tape = startingPosOnTape(tape)
+    tape = UTM(tape, transitions)
+    return tape
