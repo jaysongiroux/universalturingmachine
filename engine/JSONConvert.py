@@ -27,18 +27,20 @@ def seperater(x):
     return name, currentState, read, goto, write, move
 
 def jsonObj(name,current,read,goto,write,move):
-    obj = []
-    for i in range(len(current)):
-        obj.append({
-            currentState[i]:{
-                "state":name[i],
-                "input": read[i],
-                "transition_to": goto[i],
-                "write": write[i],
-                "move": move[i]
-            }
-        })
-    return obj
+    with open("data.json", 'w') as fp:
+        fp.write("{"+"\n")
+        for i in range(len(current)):
+            fp.write("\""+currentState[i]+"\":{\n")
+            fp.write("\"state\":\""+name[i]+"\",\n")
+            fp.write("\"input\":\""+read[i]+"\",\n")
+            fp.write("\"transition_to\":\""+goto[i]+"\",\n")
+            fp.write("\"write\":\""+ write[i]+"\",\n")
+            fp.write("\"move\":\""+ move[i]+"\"\n")
+            if i == len(current)-1:
+                fp.write("}" + "\n")
+            else:
+                fp.write("},"+"\n")
+        fp.write("}"+"\n")
 
 def duplicate_states(current):
     counter = 1
@@ -54,10 +56,14 @@ def duplicate_states(current):
             counter = 1
     return current
 
-
+# formats the json files after been written to by jsonobj method
 def creatJSON(obj):
-    with open('data.json', 'w') as outfile:
-        json.dump(obj, outfile, indent=2)
+    data = 0
+    with open("data.json", "r") as json_file:
+        data = json.load(json_file)
+        print(data)
+    with open("data.json", "w") as json_file:
+        json.dump(data,json_file,indent=2)
 
 
 input = "q1,b,q2,c,R,q1,c,q3,b,L,q1,b,q2,c,R,q1,c,q3,b,L,q2,c,q3,b,L,q2,c,q3,b,L"
@@ -65,4 +71,5 @@ x = string_to_array(input)
 name, currentState, read, goto, write, move = seperater(x)
 currentState = duplicate_states(currentState)
 obj = jsonObj(name, currentState, read, goto, write, move)
+print(obj)
 creatJSON(obj)
