@@ -9,6 +9,7 @@ def string_to_array(x):
     return a
 
 # seperates the array into catagories
+# array of transitions
 def seperater(x):
     name = []
     currentState = []

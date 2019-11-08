@@ -24,8 +24,8 @@
   <!--    STATE ACCEPT/DENY -->
   <div class="state" style="text-align:center">
     <h6>STATE:</h6>
-    <i class="material-icons">check</i>
-    <i class="material-icons">close</i>
+    <i class="material-icons" id="check" style="visibility: hidden;">check</i>
+    <i class="material-icons" id="ex" style="visibility: hidden;">close</i>
   </div>
   <label>Final tape:</label>
   <textarea id="FINALTAPE" style="height:40px" readonly></textarea>
@@ -36,13 +36,29 @@
     <br>
     <H6>INPUT</H6>
     <input placeholder="[EXAMPLE: {q1,a,q3,c},{q1,b,q2,c}]" id="INPUT" type="text" class="validate">
-    <BR>
+    <!--  use examples -->
+    <form action="#">
+      <label>
+        <input name="example" type="radio" value="0"/>
+        <span>No Example|</span>
+      </label>
+      <label>
+        <input name="example" type="radio" value="1"/>
+        <span>Example 1 |</span>
+      </label>
+      <label>
+        <input name="example" type="radio" value="2"/>
+        <span>Example 2</span>
+      </label>
+    </form>
+
     <input placeholder="a,b,c,a,b,c" id="TAPE" type="text" class="validate">
     <BR>
+
     <a class="waves-effect waves-light btn" onclick="input()">SUBMIT</a>
     <a class="waves-effect waves-light btn" href="direction.html">Directions</a>
-
   </form>
+
   <script src="./renderer.js"></script>
 </div>
 </body>
