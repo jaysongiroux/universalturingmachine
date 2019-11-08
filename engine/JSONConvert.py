@@ -1,5 +1,7 @@
 import json
-
+import os
+import re
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 # input  = q1,b,q2,c,R
 # returns array
 def string_to_array(x):
@@ -27,10 +29,10 @@ def seperater(x):
     return name, currentState, read, goto, write, move
 
 def jsonObj(name,current,read,goto,write,move):
-    with open("data.json", 'w') as fp:
+    with open("engine/data.json", 'w+') as fp:
         fp.write("{"+"\n")
         for i in range(len(current)):
-            fp.write("\""+currentState[i]+"\":{\n")
+            fp.write("\""+current[i]+"\":{\n")
             fp.write("\"state\":\""+name[i]+"\",\n")
             fp.write("\"input\":\""+read[i]+"\",\n")
             fp.write("\"transition_to\":\""+goto[i]+"\",\n")
@@ -59,17 +61,18 @@ def duplicate_states(current):
 # formats the json files after been written to by jsonobj method
 def creatJSON(obj):
     data = 0
-    with open("data.json", "r") as json_file:
+    with open(ROOT_DIR+"/data.json", "r+") as json_file:
         data = json.load(json_file)
-        print(data)
-    with open("data.json", "w") as json_file:
+        # print(data)
+    with open(ROOT_DIR+"/data.json", "w+") as json_file:
         json.dump(data,json_file,indent=2)
 
-
-input = "q1,b,q2,c,R,q1,c,q3,b,L,q1,b,q2,c,R,q1,c,q3,b,L,q2,c,q3,b,L,q2,c,q3,b,L"
-x = string_to_array(input)
-name, currentState, read, goto, write, move = seperater(x)
-currentState = duplicate_states(currentState)
-obj = jsonObj(name, currentState, read, goto, write, move)
-print(obj)
-creatJSON(obj)
+def removebraces(a):
+    # turns into string
+    a = a.split(",")
+    #     turns into array
+    for i in range(len(a)):
+        a[i] = re.sub('{','',a[i])
+        a[i] = re.sub('}','',a[i])
+    # print(a)
+    return a

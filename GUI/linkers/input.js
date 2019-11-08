@@ -62,8 +62,8 @@ function displayRadioValue() {
 }
 
 function parseFinalTape(str){
-  res = str.toString();
-  return res
+    res = str.toString();
+    return res
 }
 
 // main function called from submit button
