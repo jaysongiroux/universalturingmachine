@@ -1,0 +1,35 @@
+//State transitions for the TM of (a+b)*c+a*
+//will accept any string with a seies of 'a'+'b' followed by a 'c' then any length of a series of 'a'
+//output is blanks (X's)
+//ex. abababcaaaa abca abababababababca
+
+{
+  "q1-1": {
+    "state": "q1",
+    "input": "a",
+    "write": "X",
+    "transition_to": "q3",
+    "move": "R"
+  },
+  "q1-2": {
+    "state": "q1",
+    "input": "c",
+    "write": "X",
+    "transition_to": "q2",
+    "move": "R"
+  },
+  "q2": {
+    "state": "q2",
+    "input": "a",
+    "write": "X",
+    "transition_to": "q2",
+    "move": "R"
+  },
+  "q3": {
+    "state": "q3",
+    "input": "b",
+    "write": "X",
+    "transition_to": "q1",
+    "move": "R"
+  }
+}
