@@ -18,14 +18,17 @@
     <a class="waves-effect waves-light btn" href="gui.html">Back</a>
     <h1>Directions</h1>
     <h4>Transitions</h4>
-        <h6>Format: "{q0,a,q1,b,R}{q1,c,q2,b,L}"</h6>
+    <h6><b>Format:</b> "{q0,a,q1,b,R},{q1,c,q2,b,L}"</h6>
     <h4>Tape</h4>
-        <h6>Format: "a,b,c,a,b,c,a,b,c"</h6>
-    <h4>Accepted Grammar</h4>
-    <br>
-    <h6>Transitions: FILL THIS IN</h6>
-<!--    revosot this to add the right accepted grammar-->
-    <h6>Tape: a,b,c,ARROW,DELTA</h6>
+    <h6><b>Format:</b> "[,>a,b,c,a,b,c,a,b,c"</h6>
+    <li>Brackets must be seperated from the tape by commas as seen from the format example above.</li>
+    <li>Spaces can be represented as deltas or " " as long as it is consistent within the tape and transitions</li>
+
+    <h4>Examples</h4>
+    <li><b>Example 1.</b> - a*b* - Tape must start at the first character in the tape and be bounded on both sides</li>
+    <dd><b>Tape:</b> [,>a,a,a,a,a,b,b,b,b,]</dd>
+    <li><b>Example 2.</b> - (a+b)*c+a* - Tape must start at the first character in the tape and must be bounded on both sides</li>
+    <dd><b>Tape:</b> [,>a,b,a,b,a,b,a,b,a,b,a,b,a,b,c,a,]</dd>
     <br>
 
     <script src="./renderer.js"></script>
