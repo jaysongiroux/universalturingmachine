@@ -12,6 +12,7 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <script src="linkers/materialize.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -19,10 +20,25 @@
   <h1>TURING MACHINE</h1>
   <div class="divider"></div>
 
-  <H6>OUTPUT</H6>
-  <!--    OUTPUT LOG BOX -->
-  <textarea id="OUTPUT" style="height: 250px" readonly>
-  </textarea>
+  <div class="tab">
+    <button class="tablinks" onclick="tabs(event, 'Logging')">Logging</button>
+    <button class="tablinks" onclick="tabs(event, 'Encoding')">Encoding</button>
+  </div>
+  <div id="Logging" class="tabcontent" style="display:block">
+    <H6>OUTPUT</H6>
+    <!--    OUTPUT LOG BOX -->
+    <textarea id="OUTPUT" style="height: 250px" readonly>
+    </textarea>
+  </div>
+
+  <div id="Encoding" class="tabcontent">
+    <h6>Encoding</h6>
+    <div id="dynamicTable" style="overflow-wrap: break-word">
+    </div>
+    </table>
+  </div>
+
+
   <!--    STATE ACCEPT/DENY -->
   <div class="state" style="text-align:center">
     <h6>STATE:</h6>
