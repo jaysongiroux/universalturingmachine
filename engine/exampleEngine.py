@@ -17,8 +17,3 @@ def process(exampleNum):
 
     with open(ROOT_DIR+"/data.json","w+")as json_file:
         json.dump(data,json_file,indent=2)
-
-def test():
-    process(1)
-
-test()

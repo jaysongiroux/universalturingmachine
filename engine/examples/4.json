@@ -1,0 +1,51 @@
+{
+  "q1": {
+    "state": "q1",
+    "input": "c",
+    "write": "X",
+    "transition_to": "q3",
+    "move": "L"
+  },
+  "q1-1": {
+    "state": "q1",
+    "input": "a",
+    "write": "Y",
+    "transition_to": "q4",
+    "move": "R"
+  },
+  "q2": {
+    "state": "q2",
+    "input": "c",
+    "write": "X",
+    "transition_to": "q2",
+    "move": "L"
+  },
+  "q3": {
+    "state": "q3",
+    "input": "b",
+    "write": "X",
+    "transition_to": "q3",
+    "move": "L"
+  },
+  "q3-1": {
+    "state": "q3",
+    "input": "a",
+    "write": "X",
+    "transition_to": "q2",
+    "move": "R"
+  },
+  "q4": {
+    "state": "q4",
+    "input": "b",
+    "write": "Y",
+    "transition_to": "q4",
+    "move": "R"
+  },
+  "q4-1": {
+    "state": "q4",
+    "input": "c",
+    "write": "Y",
+    "transition_to": "q2",
+    "move": "L"
+  }
+}
