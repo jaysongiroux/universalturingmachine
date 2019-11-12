@@ -7,9 +7,11 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/general.css" />
   <script src="linkers/input.js"></script>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="linkers/materialize.js"></script>
 </head>
 <body>
 <div class="container">
@@ -40,7 +42,7 @@
     <form action="#">
       <label>
         <input name="example" type="radio" value="0"/>
-        <span>No Example|</span>
+        <span>No Example |</span>
       </label>
       <label>
         <input name="example" type="radio" value="1"/>
@@ -48,8 +50,20 @@
       </label>
       <label>
         <input name="example" type="radio" value="2"/>
-        <span>Example 2</span>
+        <span>Example 2 |</span>
       </label>
+      <label>
+        <input name="example" type="radio" value="3"/>
+        <span>Example 3 |</span>
+      </label>
+<!--      <label>-->
+<!--        <input name="example" type="radio" value="4"/>-->
+<!--        <span>Example 4 |</span>-->
+<!--      </label>-->
+<!--      <label>-->
+<!--        <input name="example" type="radio" value="5"/>-->
+<!--        <span>Example 5 |</span>-->
+<!--      </label>-->
     </form>
 
     <input placeholder="a,b,c,a,b,c" id="TAPE" type="text" class="validate">
@@ -59,6 +73,21 @@
     <a class="waves-effect waves-light btn" href="direction.html">Directions</a>
   </form>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header" id="modal-header" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+      </div>
+      <div class="modal-body">
+        <p id="modal-info"></p>
+      </div>
+    </div>
+
+
+
+  </div>
   <script src="./renderer.js"></script>
 </div>
 </body>
