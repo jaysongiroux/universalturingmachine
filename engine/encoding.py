@@ -51,11 +51,12 @@ def encoding(trans):
             temp3 = re.search("-.*$",temp).group(0)
             temp3 = re.sub('-','',temp3)
             en.append(numberbuilder(temp3))
+            en.append("0")
 
-        en.append('0')
         en.append(alpha.alphabet(toRead[i]))
         en.append('0')
         en.append(alpha.alphabet('q'))
+        en.append("0")
         temp = re.sub('q','',togo[i])
         en.append(numberbuilder(temp))
         en.append('0')
