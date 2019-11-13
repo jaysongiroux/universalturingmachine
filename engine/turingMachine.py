@@ -76,9 +76,10 @@ def currentstate(trans,number):
         counter = counter+1
     return states
 
-def whatToRead(states,transitions):
+
+def whatToRead(states, transitions):
     toRead = []
-    togo =  []
+    togo = []
     write = []
     move = []
     currentState = []
@@ -154,20 +155,20 @@ def UTM(tape, transitions):
                     exit()
 
                 # hits bracket will on continue since it is bounded
-                if tape[startingpos + counter - 1] == "]":
-                    print("[STOPPED] hit bracket ]")
-                    print("[STOPPED] In state: ", currentstates[i])
-                    print("Tape: ", tape)
-                    encode()
-                    whileBool = False
-                    break
-                elif tape[startingpos + counter - 1] == "[":
-                    print("[STOPPED] hit bracket [")
-                    print("[STOPPED] In state: ", currentstates[i])
-                    print("Tape: ", tape)
-                    encode()
-                    whileBool = False
-                    break
+                # if tape[startingpos + counter - 1] == "]":
+                #     print("[STOPPED] hit bracket ]")
+                #     print("[STOPPED] In state: ", currentstates[i])
+                #     print("Tape: ", tape)
+                #     encode()
+                #     whileBool = False
+                #     break
+                # elif tape[startingpos + counter - 1] == "[":
+                #     print("[STOPPED] hit bracket [")
+                #     print("[STOPPED] In state: ", currentstates[i])
+                #     print("Tape: ", tape)
+                #     encode()
+                #     whileBool = False
+                #     break
                 break
     return tape
 

@@ -1,8 +1,8 @@
 import json
-import turingMachine as tm
 import alphabet as alpha
 import re
 import os
+import turingMachine as tm
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 jsonFile = ROOT_DIR+"/data.json"
