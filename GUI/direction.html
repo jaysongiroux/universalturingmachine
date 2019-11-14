@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Turing Machine</title>
+    <title>Turing Machine ➝ Directions</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -20,9 +20,9 @@
     <h4>Transitions</h4>
     <h6><b>Format:</b> "{q0,a,q1,b,R},{q1,c,q2,b,L}"</h6>
     <h4>Tape</h4>
-    <h6><b>Format:</b> "[,>a,b,c,a,b,c,a,b,c"</h6>
+    <h6><b>Format:</b> "[,>a,b,c,Δ, ,a,b,c,a,b,c"</h6>
     <li>Brackets must be seperated from the tape by commas as seen from the format example above.</li>
-    <li>Spaces can be represented as deltas or " " as long as it is consistent within the tape and transitions</li>
+    <li>Spaces can be represented as Δ or " " as long as it is consistent within the tape and transitions</li>
 
     <h4>Examples</h4>
     <li><b>Example 1.</b> - a*b* - Tape must start at the first character in the tape and be bounded on both sides</li>
@@ -31,8 +31,8 @@
     <dd><b>Tape:</b> [,>a,b,a,b,a,b,a,b,a,b,a,b,a,b,c,a,]</dd>
     <li><b>Example 3.</b> - a's in multiples of 3's - Tape must start at the first character in the tape and must be bounded on both sides</li>
     <dd><b>Tape:</b> [,>a,a,a,]</dd>
-    <li><b>Example 4.</b> - Accepts: c a* b* c, tape can start wherever within bounds. tape must be bounded on both sides</li>
-    <dd><b>Tape:</b> [,c,a,b,>a,c,]</dd>
+    <li><b>Example 4.</b> - Accepts: c a* b* Δ* '[SPACE]'* c, tape can start wherever within bounds. Tape must be bounded on both sides. Accepts both forms of a "space"</li>
+    <dd><b>Tape:</b> [,c,a,b,>a,c,] or [,c,a,b,>Δ,c,]</dd>
 <!--    <li><b>Example 5.</b> - even number of characters - Tape must start at the first character in the tape and must be bounded on both sides</li>-->
 <!--    <dd><b>Tape:</b> [,>a,a,b,b,]</dd>-->
     <br>

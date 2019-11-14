@@ -34,6 +34,13 @@
     "transition_to": "q1",
     "move": "L"
   },
+    "q1-5": {
+    "state": "q1",
+    "input": "Δ",
+    "write": "Δ",
+    "transition_to": "q1",
+    "move": "L"
+  },
   "q2": {
     "state": "q2",
     "input": "]",
@@ -75,5 +82,19 @@
     "write": "X",
     "transition_to": "q2",
     "move": "L"
+  },
+  "q4-3": {
+    "state": "q4",
+    "input": " ",
+    "write": "X",
+    "transition_to": "q4",
+    "move": "R"
+  },
+    "q4-4": {
+    "state": "q4",
+    "input": "Δ",
+    "write": "X",
+    "transition_to": "q4",
+    "move": "R"
   }
 }

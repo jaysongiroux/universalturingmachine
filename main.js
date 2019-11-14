@@ -15,7 +15,7 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 900,
+    height: 800,
     // this is for windows and linux machines to have a icon
     icon: 'icon.ico'
   });
