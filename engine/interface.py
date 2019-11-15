@@ -22,3 +22,4 @@ def input(input,exampleNum):
 
 input(option,example)
 sys.stdout.flush()
+
