@@ -1,15 +1,18 @@
 # universalturingmachine
 RWU Software design
 
-deployment instructions will be subject to change as the socket and backend are developed
+### Prerequisites:
+NPM/ NODE: https://nodejs.org/en/download/ <br>
+Python: https://www.python.org/downloads/ <br>
 
-Prerequisite:
-NPM/ NODE
-Python
 
-Deployment:
-1. git clone https://github.com/jaysongiroux/universalturingmachine
-2. cd universalturingmachine
-3. cd GUI
-4. npm install
-5. npm start
+### Setup/ Deployment:
+```git clone https://github.com/jaysongiroux/universalturingmachine```
+<br>
+```cd universalturingmachine```
+### Setting up dependancies:
+```npm i python-shell```
+### setting up node:
+```npm install ```
+### starting the program:
+```npm start```
