@@ -68,7 +68,7 @@ def currentstate(trans,number):
 
     for keys in jsonkeys:
         listKeys.append(keys)
-    # print("keys from json file: ",listKeys)
+
     print("checking if matching: ", contains)
     for i in range(len(listKeys)):
         if contains in listKeys[counter]:

@@ -9,7 +9,7 @@ def process(exampleNum):
 
     # if no example is choosen
     if exampleNum == 0:
-        return null
+        return False
 
     # copy data from example json files to main data.json file
     with open(tempString,"r") as json_file:

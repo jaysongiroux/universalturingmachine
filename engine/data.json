@@ -2,99 +2,36 @@
   "q1": {
     "state": "q1",
     "input": "a",
-    "write": "a",
+    "write": "x",
     "transition_to": "q1",
-    "move": "L"
-  },
-  "q1-1": {
-    "state": "q1",
-    "input": "b",
-    "write": "b",
-    "transition_to": "q1",
-    "move": "L"
+    "move": "R"
   },
   "q1-2": {
     "state": "q1",
-    "input": "c",
-    "write": "c",
-    "transition_to": "q1",
-    "move": "L"
-  },
-  "q1-3": {
-    "state": "q1",
-    "input": "[",
-    "write": "[",
-    "transition_to": "q3",
+    "input": "a",
+    "write": "x",
+    "transition_to": "q2",
     "move": "R"
-  },
-  "q1-4": {
-    "state": "q1",
-    "input": " ",
-    "write": " ",
-    "transition_to": "q1",
-    "move": "L"
-  },
-  "q1-5": {
-    "state": "q1",
-    "input": "\u0394",
-    "write": "\u0394",
-    "transition_to": "q1",
-    "move": "L"
   },
   "q2": {
     "state": "q2",
-    "input": "]",
-    "write": "]",
-    "transition_to": "q2",
-    "move": "L"
-  },
-  "q2-1": {
-    "state": "q2",
-    "input": "X",
-    "write": "X",
-    "transition_to": "q2",
-    "move": "R"
-  },
-  "q3": {
-    "state": "q3",
-    "input": "c",
-    "write": "X",
-    "transition_to": "q4",
-    "move": "R"
-  },
-  "q4": {
-    "state": "q4",
     "input": "a",
-    "write": "X",
-    "transition_to": "q4",
-    "move": "R"
-  },
-  "q4-1": {
-    "state": "q4",
-    "input": "b",
-    "write": "X",
-    "transition_to": "q4",
-    "move": "R"
-  },
-  "q4-2": {
-    "state": "q4",
-    "input": "c",
-    "write": "X",
+    "write": "x",
     "transition_to": "q2",
-    "move": "L"
-  },
-  "q4-3": {
-    "state": "q4",
-    "input": " ",
-    "write": "X",
-    "transition_to": "q4",
     "move": "R"
   },
-  "q4-4": {
-    "state": "q4",
-    "input": "\u0394",
-    "write": "X",
-    "transition_to": "q4",
+  "q2-2": {
+    "state": "q2",
+    "input": "c",
+    "write": "x",
+    "transition_to": "q2",
+    "move": "R"
+  },
+  "q2-3": {
+    "state": "q2",
+    "input": "c",
+    "write": "x",
+    "transition_to": "q2",
     "move": "R"
   }
 }
