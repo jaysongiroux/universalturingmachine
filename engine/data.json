@@ -15,21 +15,7 @@
   },
   "q2": {
     "state": "q2",
-    "input": "a",
-    "write": "x",
-    "transition_to": "q2",
-    "move": "R"
-  },
-  "q2-2": {
-    "state": "q2",
-    "input": "c",
-    "write": "x",
-    "transition_to": "q2",
-    "move": "R"
-  },
-  "q2-3": {
-    "state": "q2",
-    "input": "c",
+    "input": "b",
     "write": "x",
     "transition_to": "q2",
     "move": "R"
