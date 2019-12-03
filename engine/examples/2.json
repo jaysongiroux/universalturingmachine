@@ -10,7 +10,7 @@
     "state": "q1",
     "input": "c",
     "write": "X",
-    "transition_to": "q2",
+    "transition_to": "q3",
     "move": "R"
   },
   "q2": {
@@ -25,6 +25,13 @@
     "input": "b",
     "write": "X",
     "transition_to": "q1",
+    "move": "R"
+  },
+  "q3-1": {
+    "state": "q3",
+    "input": "a",
+    "write": "X",
+    "transition_to": "q2",
     "move": "R"
   }
 }
