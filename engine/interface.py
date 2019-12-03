@@ -9,7 +9,7 @@ example = sys.argv[2]
 
 # this is the script the javascript executes importing another python file for turing machines
 def input(input,exampleNum):
-    if exampleNum != 0:
+    if exampleNum != "0":
         ex.process(exampleNum)
     else:
         x = con.removebraces(input)

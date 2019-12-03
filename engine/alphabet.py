@@ -26,10 +26,14 @@ def alphabet(a):
     if a == "y" or a == "Y": return "1111111111111111111111111"
     if a == "z": return "11111111111111111111111111"
     # space
-    if a == "Δ" or a == " ": return "111111111111111111111111111"
+    if a == "Δ" or a == " " or a == "\u0394" or "Δ" in a or "\u0394" in a:
+        return "111111111111111111111111111"
     if a == "-": return "1111111111111111111111111111"
     if a == "[": return "11111111111111111111111111111"
     if a == "]": return "111111111111111111111111111111"
+    # space delta, as of right now cannot compare unicode char's reliably
+    else:
+        return "111111111111111111111111111"
 
 
 

@@ -60,9 +60,11 @@ def encoding(trans):
         temp = re.sub('q','',togo[i])
         en.append(numberbuilder(temp))
         en.append('0')
+        print(write)
         en.append(alpha.alphabet(write[i].lower()))
         en.append('0')
         en.append(alpha.alphabet(move[i]))
+        print(en)
         temp = ''.join(en)
         final.append({
             states[i]:temp
