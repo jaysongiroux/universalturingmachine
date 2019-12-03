@@ -21,6 +21,7 @@ def seperater(x):
         o = i * 5
         if i == len(x)/5:
             break
+        # print(x[o])
         name.append(x[o])
         currentState.append(x[o])
         read.append(x[o+1])

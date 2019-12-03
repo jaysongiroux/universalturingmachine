@@ -116,6 +116,14 @@ def UTM(tape, transitions):
 
         for i in range(len(toRead)):
             print("current Tape: ", tape)
+            # haults if in q2
+            if currentstates[i] in "q2":
+                print("Final Tape: ", tape)
+                print("In state q2 --> haulting")
+                print("ACCEPTED")
+                encode()
+                exit()
+
             print("checking if tape: ", tape[startingpos + counter - 1], "==", toRead[i])
 
             if not tape[startingpos + counter - 1] in toRead:
@@ -128,6 +136,7 @@ def UTM(tape, transitions):
                 state = i
                 #         writing to tape
                 tape[startingpos + counter - 1] = write[state]
+                print("Writing: ", write[state])
                 stateNum = getStates(togo[state])
 
                 #       movement:
@@ -140,7 +149,6 @@ def UTM(tape, transitions):
                     print("Moving Left")
                     counter = counter - 1
 
-                #     hit bracket and in q2
                 if tape[startingpos + counter - 1] == "]" and currentstates[i] in "q2":
                     print("Final Tape: ", tape)
                     print("in state q2 and finished")

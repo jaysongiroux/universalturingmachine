@@ -3,7 +3,7 @@
     "state": "q1",
     "input": "a",
     "transition_to": "q3",
-    "write": "\u0394",
+    "write": " ",
     "move": "R"
   },
   "q1-1": {
@@ -15,37 +15,16 @@
   },
   "q1-2": {
     "state": "q1",
-    "input": "\u0394",
+    "input": " ",
     "transition_to": "q2",
     "write": "1",
     "move": "R"
   },
   "q2": {
     "state": "q2",
-    "input": "a",
+    "input": " ",
     "transition_to": "q2",
-    "write": "a",
-    "move": "R"
-  },
-  "q2-1": {
-    "state": "q2",
-    "input": "b",
-    "transition_to": "q2",
-    "write": "b",
-    "move": "R"
-  },
-  "q2-2": {
-    "state": "q2",
-    "input": "\u0394",
-    "transition_to": "q2",
-    "write": "\u0394",
-    "move": "R"
-  },
-  "q2-3": {
-    "state": "q2",
-    "input": "0",
-    "transition_to": "q2",
-    "write": "0",
+    "write": " ",
     "move": "R"
   },
   "q3": {
@@ -64,28 +43,28 @@
   },
   "q3-2": {
     "state": "q3",
-    "input": "\u0394",
+    "input": " ",
     "transition_to": "q4",
-    "write": "\u0394",
-    "move": "R"
+    "write": " ",
+    "move": "L"
   },
   "q4": {
     "state": "q4",
     "input": "a",
     "transition_to": "q5",
-    "write": "\u0394",
+    "write": " ",
     "move": "L"
   },
   "q4-1": {
     "state": "q4",
     "input": "b",
     "transition_to": "q6",
-    "write": "\u0394",
+    "write": " ",
     "move": "L"
   },
   "q4-2": {
     "state": "q4",
-    "input": "\u0394",
+    "input": " ",
     "transition_to": "q2",
     "write": "0",
     "move": "L"
@@ -94,19 +73,19 @@
     "state": "q5",
     "input": "a",
     "transition_to": "q5",
-    "write": "\u0394",
+    "write": " ",
     "move": "L"
   },
   "q5-1": {
     "state": "q5",
     "input": "b",
     "transition_to": "q5",
-    "write": "\u0394",
+    "write": " ",
     "move": "L"
   },
   "q5-2": {
     "state": "q5",
-    "input": "\u0394",
+    "input": " ",
     "transition_to": "q2",
     "write": "0",
     "move": "L"
@@ -122,35 +101,35 @@
     "state": "q6",
     "input": "b",
     "transition_to": "q6",
-    "write": "a",
+    "write": "b",
     "move": "L"
   },
   "q6-2": {
     "state": "q6",
-    "input": "\u0394",
+    "input": " ",
     "transition_to": "q1",
-    "write": "\u0394",
+    "write": " ",
     "move": "R"
   },
   "q7": {
     "state": "q7",
     "input": "a",
     "transition_to": "q7",
-    "write": "\u0394",
+    "write": " ",
     "move": "R"
   },
   "q7-1": {
     "state": "q7",
     "input": "b",
     "transition_to": "q7",
-    "write": "\u0394",
-    "move": "R"
+    "write": " ",
+    "move": " R"
   },
   "q7-2": {
     "state": "q7",
-    "input": "\u0394",
+    "input": " ",
     "transition_to": "q2",
-    "write": "\u0394",
+    "write": " ",
     "move": "R"
   }
 }
