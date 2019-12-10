@@ -8,7 +8,7 @@ Will Manley<br>
 NPM/ NODE: https://nodejs.org/en/download/ <br>
 Python: https://www.python.org/downloads/ <br>
 
-
+# Running Source Code
 ### Setup/ Deployment:
 ```git clone https://github.com/jaysongiroux/universalturingmachine```
 <br>
@@ -20,6 +20,13 @@ Python: https://www.python.org/downloads/ <br>
 ### Starting the program:
 ```npm start```
 
+# Running From Executable: 
+- Packaged together using Electron-Packager: https://www.npmjs.com/package/electron-packager <br>
+- Download the zip file from: https://drive.google.com/file/d/11VVDGymV3cND15r3Lg1tLaLYfeQK0lto/view?usp=sharing 
+- Extract Folder and open folder that Corresponds to your operating system.
+## Options:
+1.	Mac (Darwin)
+2.	Win 64
 
 
 # Examples:
