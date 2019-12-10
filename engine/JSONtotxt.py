@@ -4,10 +4,10 @@ import re
 import sys
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
+FILE = "/examples/6.json"
 # REPLACE "<<FILE>>" WITH THE JSON FILE YOU WOULD LIKE TO CONVERT
 def readJSON():
-    with open(ROOT_DIR + <<FILE>>, "r+") as json_file:
+    with open(ROOT_DIR + FILE, "r+") as json_file:
         data = json.load(json_file)
     return data
 
