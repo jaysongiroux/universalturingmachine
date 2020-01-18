@@ -1,8 +1,5 @@
 # Universal Turing Machine
 **RWU Software design**<br>
-Jason Giroux<br>
-James Lee<br>
-Will Manley<br>
 
 ### Prerequisites:
 NPM/ NODE: https://nodejs.org/en/download/ <br>
